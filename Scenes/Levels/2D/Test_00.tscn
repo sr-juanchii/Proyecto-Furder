@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://da0as8llu4ilp"]
+
+[ext_resource type="PackedScene" uid="uid://dtgw0m6ee21tv" path="res://Components/Player2D/player.tscn" id="1_0quoy"]
+[ext_resource type="Texture2D" uid="uid://b0dsdjfyj78k3" path="res://Graphics/Components/NoPlayer/furder_bg001_placeholder (1).png" id="1_x1ek7"]
+[ext_resource type="PackedScene" uid="uid://6iee2qrb7h1r" path="res://Components/NoPlayer/dummy.tscn" id="2_4pt47"]
+[ext_resource type="PackedScene" uid="uid://dfnb4tevhfl0a" path="res://Components/NoPlayer/user_interfece.tscn" id="4_yol77"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x1ek7"]
+
+[node name="Test00" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(556, 349)
+
+[node name="FurderBg001Placeholder(1)" type="Sprite2D" parent="StaticBody2D"]
+texture_filter = 1
+position = Vector2(-40, -60)
+texture = ExtResource("1_x1ek7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_x1ek7")
+
+[node name="Player" parent="." instance=ExtResource("1_0quoy")]
+position = Vector2(611, 323)
+
+[node name="Dummy" parent="." instance=ExtResource("2_4pt47")]
+position = Vector2(443, 349)
+collision_layer = 2
+collision_mask = 3
+
+[node name="UserInterfece" parent="." instance=ExtResource("4_yol77")]

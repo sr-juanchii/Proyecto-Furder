@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckpk67qmhtr51"]
+
+[ext_resource type="Texture2D" uid="uid://5rchooklvkw2" path="res://Graphics/Components/HUB/Experience/Exp_bar-Under.png" id="1_bl3gw"]
+[ext_resource type="Texture2D" uid="uid://cp0373cmnhlux" path="res://Graphics/Components/HUB/Experience/Exp_bar-Over.png" id="2_pmnj6"]
+[ext_resource type="Texture2D" uid="uid://c0olfkn3ca5s0" path="res://Graphics/Components/HUB/Experience/Exp_bar-Progres.png" id="3_60kql"]
+
+[node name="ExperienceBar" type="TextureProgressBar"]
+texture_filter = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 218.0
+grow_horizontal = 2
+pivot_offset = Vector2(576, 324)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_bl3gw")
+texture_over = ExtResource("2_pmnj6")
+texture_progress = ExtResource("3_60kql")

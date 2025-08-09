@@ -1,0 +1,175 @@
+[gd_scene load_steps=20 format=3 uid="uid://dtgw0m6ee21tv"]
+
+[ext_resource type="Script" uid="uid://hlfeymvf2epw" path="res://Scripts/Components/Player2D/player.gd" id="1_1luhb"]
+[ext_resource type="Texture2D" uid="uid://ckakykckrf0uj" path="res://Graphics/Components/Player2D/Sprites/Idle/Idle01.png" id="2_qplh6"]
+[ext_resource type="Texture2D" uid="uid://defne45nq22j3" path="res://Graphics/Components/Player2D/Sprites/JumpRise/JumpRise01.png" id="3_hl8n3"]
+[ext_resource type="AnimationLibrary" uid="uid://dkol2hgplv4nw" path="res://Components/Player2D/PlayerAnimator.res" id="3_reo8p"]
+[ext_resource type="Texture2D" uid="uid://bh1fmnk06qwhp" path="res://Graphics/Components/Player2D/Sprites/JumpFall/JumpFall01.png" id="4_5lt27"]
+[ext_resource type="Texture2D" uid="uid://dbtcljhmgnbrk" path="res://Graphics/Components/Player2D/Sprites/JumpMid/JumpMid01.png" id="4_hl8n3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hl8n3"]
+radius = 5.0
+height = 40.0
+
+[sub_resource type="Animation" id="Animation_e07yg"]
+resource_name = "Fall"
+length = 0.0333367
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCollision/PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_hl8n3")]
+}
+
+[sub_resource type="Animation" id="Animation_enqlo"]
+resource_name = "Jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCollision/PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_hl8n3")]
+}
+
+[sub_resource type="Animation" id="Animation_reo8p"]
+resource_name = "Land"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCollision/PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_5lt27")]
+}
+
+[sub_resource type="Animation" id="Animation_5lt27"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCollision/PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qplh6")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_enqlo"]
+_data = {
+&"Fall": SubResource("Animation_e07yg"),
+&"Jump": SubResource("Animation_enqlo"),
+&"Land": SubResource("Animation_reo8p"),
+&"RESET": SubResource("Animation_5lt27")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y0mw2"]
+animation = &"Fall"
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e07yg"]
+animation = &"PlayerAnimator/Idle"
+use_custom_timeline = true
+timeline_length = 0.65
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fgui5"]
+animation = &"Jump"
+use_custom_timeline = true
+timeline_length = 0.5
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5lt27"]
+animation = &"Land"
+use_custom_timeline = true
+timeline_length = 0.5
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1luhb"]
+animation = &"PlayerAnimator/Run"
+use_custom_timeline = true
+timeline_length = 0.5
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qplh6"]
+animation = &"PlayerAnimator/Walk"
+use_custom_timeline = true
+timeline_length = 0.7
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fgui5"]
+states/End/position = Vector2(1202, -56)
+states/Fall/node = SubResource("AnimationNodeAnimation_y0mw2")
+states/Fall/position = Vector2(160, -108)
+states/Idle/node = SubResource("AnimationNodeAnimation_e07yg")
+states/Idle/position = Vector2(50, 51)
+states/Jump/node = SubResource("AnimationNodeAnimation_fgui5")
+states/Jump/position = Vector2(50, -108)
+states/Land/node = SubResource("AnimationNodeAnimation_5lt27")
+states/Land/position = Vector2(253, -108)
+states/Run/node = SubResource("AnimationNodeAnimation_1luhb")
+states/Run/position = Vector2(274, 51)
+states/Start/position = Vector2(-44, 51)
+states/Walk/node = SubResource("AnimationNodeAnimation_qplh6")
+states/Walk/position = Vector2(160, 51)
+graph_offset = Vector2(-376, -158)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_1luhb")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -20)
+shape = SubResource("CapsuleShape2D_hl8n3")
+
+[node name="PlayerSprite" type="Sprite2D" parent="PlayerCollision"]
+texture_filter = 1
+position = Vector2(0, 20)
+texture = ExtResource("2_qplh6")
+offset = Vector2(0, -42)
+
+[node name="PlayerAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_enqlo"),
+&"PlayerAnimator": ExtResource("3_reo8p")
+}
+
+[node name="PlayerAnimationTree" type="AnimationTree" parent="PlayerAnimator"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_fgui5")
+anim_player = NodePath("..")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(0, -49)
+zoom = Vector2(3.895, 3.895)
