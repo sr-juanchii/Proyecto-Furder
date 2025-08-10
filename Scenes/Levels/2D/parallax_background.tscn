@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://c2tqfbhwh8twp"]
+
+[ext_resource type="Texture2D" uid="uid://cdon138w0ax4j" path="res://Graphics/Scenes/Apartament/1.png" id="1_jl2fj"]
+[ext_resource type="Texture2D" uid="uid://8m7s7o2mjcfr" path="res://Graphics/Scenes/Apartament/2.png" id="2_i866v"]
+[ext_resource type="Texture2D" uid="uid://oedqg5s6gkdk" path="res://Graphics/Scenes/Apartament/3.png" id="3_kwsus"]
+[ext_resource type="Texture2D" uid="uid://bt6xlrxp2f7ux" path="res://Graphics/Scenes/Apartament/4.png" id="4_b4o0a"]
+[ext_resource type="Texture2D" uid="uid://ch1mqtvlql2ih" path="res://Graphics/Scenes/Apartament/5.png" id="5_mglr8"]
+[ext_resource type="Texture2D" uid="uid://b2q5eoglsf8ua" path="res://Graphics/Scenes/Apartament/6.png" id="6_lq4yn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjh1u"]
+size = Vector2(31.75, 52.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jl2fj"]
+size = Vector2(32, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i866v"]
+size = Vector2(62, 53)
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_jl2fj")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("2_i866v")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("3_kwsus")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+
+[node name="Area2D" type="Area2D" parent="ParallaxLayer4"]
+position = Vector2(270, 224.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4/Area2D"]
+position = Vector2(-270, -224.5)
+texture = ExtResource("4_b4o0a")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxLayer4/Area2D"]
+position = Vector2(-0.125, -15.5)
+shape = SubResource("RectangleShape2D_cjh1u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ParallaxLayer4/Area2D"]
+position = Vector2(-147, -16)
+shape = SubResource("RectangleShape2D_jl2fj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ParallaxLayer4/Area2D"]
+position = Vector2(251, -16)
+shape = SubResource("RectangleShape2D_i866v")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+texture = ExtResource("5_mglr8")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+z_index = 1
+texture_filter = 1
+scale = Vector2(2, 2)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ParallaxLayer6"]
+position = Vector2(321.5, 236.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6/StaticBody2D"]
+position = Vector2(-321.5, -236.5)
+texture = ExtResource("6_lq4yn")
+centered = false

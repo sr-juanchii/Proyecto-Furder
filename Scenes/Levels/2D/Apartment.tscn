@@ -1,0 +1,118 @@
+[gd_scene load_steps=13 format=3 uid="uid://djfcqq477robw"]
+
+[ext_resource type="Texture2D" uid="uid://cdon138w0ax4j" path="res://Graphics/Scenes/Apartament/1.png" id="1_038et"]
+[ext_resource type="Texture2D" uid="uid://8m7s7o2mjcfr" path="res://Graphics/Scenes/Apartament/2.png" id="2_ua21c"]
+[ext_resource type="Texture2D" uid="uid://oedqg5s6gkdk" path="res://Graphics/Scenes/Apartament/3.png" id="3_28dh5"]
+[ext_resource type="Texture2D" uid="uid://bt6xlrxp2f7ux" path="res://Graphics/Scenes/Apartament/4.png" id="4_gdxlg"]
+[ext_resource type="Texture2D" uid="uid://ch1mqtvlql2ih" path="res://Graphics/Scenes/Apartament/5.png" id="5_4r8ey"]
+[ext_resource type="Texture2D" uid="uid://b2q5eoglsf8ua" path="res://Graphics/Scenes/Apartament/6.png" id="6_aw1l2"]
+[ext_resource type="PackedScene" uid="uid://dtgw0m6ee21tv" path="res://Components/Player2D/player.tscn" id="7_bfvle"]
+[ext_resource type="Texture2D" uid="uid://b6rom6rmdgk7c" path="res://Graphics/Scenes/Apartament/4-Recuperado.png" id="8_ua21c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_038et"]
+size = Vector2(32, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua21c"]
+size = Vector2(32, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28dh5"]
+size = Vector2(68, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5iovj"]
+size = Vector2(598, 8)
+
+[node name="Node2D" type="Node2D"]
+texture_filter = 1
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+texture = ExtResource("1_038et")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D2"]
+texture = ExtResource("2_ua21c")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D2"]
+texture = ExtResource("3_28dh5")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="Node2D2"]
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D2/Area2D"]
+texture = ExtResource("4_gdxlg")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/Area2D"]
+visible = false
+position = Vector2(270, 209)
+shape = SubResource("RectangleShape2D_038et")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D2/Area2D"]
+visible = false
+position = Vector2(123, 208.5)
+shape = SubResource("RectangleShape2D_ua21c")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D2/Area2D"]
+visible = false
+position = Vector2(521, 206)
+shape = SubResource("RectangleShape2D_28dh5")
+
+[node name="Floor" type="StaticBody2D" parent="Node2D2"]
+position = Vector2(341, 239)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2/Floor"]
+texture = ExtResource("6_aw1l2")
+region_enabled = true
+region_rect = Rect2(42, 235, 598, 9)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D2/Floor"]
+position = Vector2(-341, -239)
+texture = ExtResource("5_4r8ey")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/Floor"]
+shape = SubResource("RectangleShape2D_5iovj")
+
+[node name="Player" parent="." instance=ExtResource("7_bfvle")]
+position = Vector2(170, 234)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.960784, 0.960784, 0.905882, 1)
+energy = 0.5
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(125, 179)
+scale = Vector2(0.887346, 0.833333)
+color = Color(0.877468, 0.878242, 0.501908, 1)
+energy = 0.7
+texture = ExtResource("8_ua21c")
+texture_scale = 1.2
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(122, 194)
+scale = Vector2(0.457171, 0.457171)
+color = Color(0.827451, 0.709804, 0.294118, 1)
+energy = 0.99
+texture = ExtResource("8_ua21c")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(271.634, 181.5)
+scale = Vector2(0.887346, 0.833333)
+color = Color(0.877468, 0.878242, 0.501908, 1)
+energy = 0.7
+texture = ExtResource("8_ua21c")
+texture_scale = 1.2
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+position = Vector2(268.634, 196.5)
+scale = Vector2(0.457171, 0.457171)
+color = Color(0.827451, 0.709804, 0.294118, 1)
+energy = 0.99
+texture = ExtResource("8_ua21c")

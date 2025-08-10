@@ -47,8 +47,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Permite saltar si el jugador presiona el botón de salto y está en el suelo
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	#if Input.is_action_just_pressed("jump") and is_on_floor():
+	#	velocity.y = JUMP_VELOCITY
 
 	# Obtiene la dirección de entrada horizontal (-1 para izquierda, 1 para derecha, 0 sin movimiento)
 	var direction := Input.get_axis("moveLeft", "moveRight")
