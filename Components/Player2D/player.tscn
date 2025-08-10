@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://dtgw0m6ee21tv"]
+[gd_scene load_steps=21 format=3 uid="uid://dtgw0m6ee21tv"]
 
-[ext_resource type="Script" uid="uid://hlfeymvf2epw" path="res://Scripts/Components/Player2D/player.gd" id="1_1luhb"]
+[ext_resource type="Script" uid="uid://doa1rdrqvkrf6" path="res://Scripts/Components/Player2D/player.gd" id="1_1luhb"]
 [ext_resource type="Texture2D" uid="uid://ckakykckrf0uj" path="res://Graphics/Components/Player2D/Sprites/Idle/Idle01.png" id="2_qplh6"]
 [ext_resource type="Texture2D" uid="uid://defne45nq22j3" path="res://Graphics/Components/Player2D/Sprites/JumpRise/JumpRise01.png" id="3_hl8n3"]
 [ext_resource type="AnimationLibrary" uid="uid://dkol2hgplv4nw" path="res://Components/Player2D/PlayerAnimator.res" id="3_reo8p"]
@@ -89,6 +89,14 @@ stretch_time_scale = true
 start_offset = 0.0
 loop_mode = 0
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hl8n3"]
+animation = &"PlayerAnimator/Fallen"
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e07yg"]
 animation = &"PlayerAnimator/Idle"
 use_custom_timeline = true
@@ -133,6 +141,8 @@ loop_mode = 1
 states/End/position = Vector2(1202, -56)
 states/Fall/node = SubResource("AnimationNodeAnimation_y0mw2")
 states/Fall/position = Vector2(160, -108)
+states/FallDown/node = SubResource("AnimationNodeAnimation_hl8n3")
+states/FallDown/position = Vector2(160, -43)
 states/Idle/node = SubResource("AnimationNodeAnimation_e07yg")
 states/Idle/position = Vector2(50, 51)
 states/Jump/node = SubResource("AnimationNodeAnimation_fgui5")
