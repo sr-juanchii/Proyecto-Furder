@@ -1,70 +1,88 @@
-[gd_scene format=3 uid="uid://cyg8woqcxs6sa"]
+[gd_scene load_steps=9 format=3 uid="uid://cyg8woqcxs6sa"]
 
-[node name="MainMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(576, 324)
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[ext_resource type="Script" uid="uid://dcnxchpacr6nc" path="res://UI/Menu/main_menu.gd" id="1_pcr23"]
+[ext_resource type="Texture2D" uid="uid://dvvy3nj1xj6wp" path="res://Graphics/Renders/Amber/render Amber 1.png" id="1_sd33r"]
+[ext_resource type="Texture2D" uid="uid://b5ahhjuxcxqyx" path="res://Graphics/Renders/Gwendolyn/render gwendolynn 1.png" id="2_pcr23"]
+[ext_resource type="Texture2D" uid="uid://cy3i1afacths4" path="res://Graphics/Renders/Haicel/render haicel 1.png" id="3_715dn"]
+[ext_resource type="Texture2D" uid="uid://1jqs2j6u106a" path="res://Graphics/Renders/Milf/render milf 1.png" id="4_jpwwe"]
+[ext_resource type="Texture2D" uid="uid://cdfbq0ofghmbc" path="res://Graphics/Renders/Patty/render patty 1.png" id="5_3ue6s"]
+[ext_resource type="Texture2D" uid="uid://b5wl1io3q1ahl" path="res://Graphics/Renders/Viviann/render Viviann 1.png" id="6_ynklu"]
+[ext_resource type="AudioStream" uid="uid://bd4jj83mliu6h" path="res://Components/Conversacion.wav" id="8_715dn"]
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(556, 312)
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_pcr23")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(247, 680)
+scale = Vector2(0.480002, 0.480002)
+texture = ExtResource("1_sd33r")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(529, 712)
+scale = Vector2(0.480002, 0.480002)
+texture = ExtResource("2_pcr23")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1150, 707)
+scale = Vector2(0.480002, 0.480002)
+texture = ExtResource("3_715dn")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(800, 715)
+scale = Vector2(0.480002, 0.480002)
+texture = ExtResource("4_jpwwe")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(1431, 699)
+scale = Vector2(0.480002, 0.480002)
+texture = ExtResource("5_3ue6s")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(1727, 697)
+scale = Vector2(0.480002, 0.480002)
+texture = ExtResource("6_ynklu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -58.5
+offset_top = -55.0
+offset_right = 58.5
+offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(20, 20)
+size_flags_horizontal = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Start" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+text = "Comenzar"
 
-[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+text = "Opciones"
 
-[node name="Button3" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="QuitGame" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+text = "Salir del juego"
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -93.0
-offset_top = -47.0
-offset_right = -50.0
-offset_bottom = -21.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(20, 12)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_715dn")
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

@@ -1,15 +1,55 @@
-[gd_scene format=3 uid="uid://cfqgefe1a8lip"]
+[gd_scene load_steps=2 format=3 uid="uid://cfqgefe1a8lip"]
+
+[ext_resource type="Script" uid="uid://du7kjw56ewmcw" path="res://UI/Menu/pause_menu.gd" id="1_xiefw"]
 
 [node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_xiefw")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -550.5
-offset_top = 84.0
-offset_right = 550.5
-offset_bottom = 549.0
+offset_left = -106.5
+offset_top = 316.0
+offset_right = 106.5
+offset_bottom = 407.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 341
+theme_override_font_sizes/font_size = 66
 text = "PAUSA"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -50.5
+offset_right = 54.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Continue" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continuar"
+
+[node name="Options" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Opciones"
+
+[node name="QuitMenu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Salir al menu"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/QuitMenu" to="." method="_on_quit_menu_pressed"]

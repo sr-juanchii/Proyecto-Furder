@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://djfcqq477robw"]
+[gd_scene load_steps=16 format=3 uid="uid://djfcqq477robw"]
 
+[ext_resource type="Script" uid="uid://c1lknujlh5cx4" path="res://Scenes/Levels/2D/apartment.gd" id="1_28dh5"]
 [ext_resource type="Texture2D" uid="uid://cdon138w0ax4j" path="res://Graphics/Scenes/Apartament/1.png" id="1_038et"]
 [ext_resource type="Texture2D" uid="uid://8m7s7o2mjcfr" path="res://Graphics/Scenes/Apartament/2.png" id="2_ua21c"]
 [ext_resource type="Texture2D" uid="uid://oedqg5s6gkdk" path="res://Graphics/Scenes/Apartament/3.png" id="3_28dh5"]
@@ -19,13 +20,17 @@ size = Vector2(32, 53)
 size = Vector2(68, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5iovj"]
-size = Vector2(598, 8)
+size = Vector2(581, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdxlg"]
-size = Vector2(46, 360)
+size = Vector2(59, 349)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4r8ey"]
+size = Vector2(15, 348)
+
+[node name="Node2D" type="Node2D" groups=["isPausable"]]
 texture_filter = 1
+script = ExtResource("1_28dh5")
 
 [node name="Node2D2" type="Node2D" parent="."]
 
@@ -42,23 +47,22 @@ texture = ExtResource("3_28dh5")
 centered = false
 
 [node name="Area2D" type="Area2D" parent="Node2D2"]
+collision_layer = 0
+collision_mask = 2
 
 [node name="Sprite2D4" type="Sprite2D" parent="Node2D2/Area2D"]
 texture = ExtResource("4_gdxlg")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/Area2D"]
-visible = false
 position = Vector2(270, 209)
 shape = SubResource("RectangleShape2D_038et")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D2/Area2D"]
-visible = false
 position = Vector2(123, 208.5)
 shape = SubResource("RectangleShape2D_ua21c")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D2/Area2D"]
-visible = false
 position = Vector2(521, 206)
 shape = SubResource("RectangleShape2D_28dh5")
 
@@ -76,6 +80,7 @@ texture = ExtResource("5_4r8ey")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/Floor"]
+position = Vector2(8.5, 0)
 shape = SubResource("RectangleShape2D_5iovj")
 
 [node name="Player" parent="." instance=ExtResource("7_bfvle")]
@@ -123,7 +128,14 @@ texture = ExtResource("8_ua21c")
 [node name="Node2D3" type="Node2D" parent="."]
 
 [node name="Area2D" type="StaticBody2D" parent="Node2D3"]
+position = Vector2(11, 11)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D3/Area2D"]
-position = Vector2(13, 170)
+position = Vector2(18.5, 164.5)
 shape = SubResource("RectangleShape2D_gdxlg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D3/Area2D"]
+position = Vector2(631.5, 164)
+shape = SubResource("RectangleShape2D_4r8ey")
+
+[connection signal="area_entered" from="Node2D2/Area2D" to="." method="_on_area_2d_area_entered"]

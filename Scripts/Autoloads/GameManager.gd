@@ -13,7 +13,9 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("pause"):
-		toggle_pause()
+		var scena_actual: = get_tree().current_scene 
+		if scena_actual and scena_actual.is_in_group("isPausable"):
+			toggle_pause()
 
 func toggle_pause():
 	get_tree().paused = not get_tree().paused

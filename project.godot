@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Proyecto-Furder"
-run/main_scene="uid://djfcqq477robw"
+run/main_scene="uid://cyg8woqcxs6sa"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(1, 1, 1, 1)
 config/icon="res://icon.svg"
@@ -35,6 +35,10 @@ folder_colors={
 "res://Scripts/": "yellow",
 "res://UI/": "pink"
 }
+
+[global_group]
+
+isPausable="La Escena permite pausa"
 
 [input]
 

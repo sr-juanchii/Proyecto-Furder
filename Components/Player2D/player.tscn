@@ -180,10 +180,9 @@ root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_fgui5")
 anim_player = NodePath("..")
 
-[node name="Camera" type="Camera2D" parent="."]
-position = Vector2(0, -49)
-zoom = Vector2(3.895, 3.895)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -35)
+zoom = Vector2(4, 4)
 limit_left = 0
-limit_top = 0
-limit_bottom = 0
-limit_smoothed = true
+limit_right = 640
+limit_bottom = 1080
