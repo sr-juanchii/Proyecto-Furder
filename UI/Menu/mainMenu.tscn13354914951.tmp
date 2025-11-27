@@ -1,11 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyg8woqcxs6sa"]
+[gd_scene load_steps=11 format=3 uid="uid://cyg8woqcxs6sa"]
 
 [ext_resource type="Script" uid="uid://dcnxchpacr6nc" path="res://UI/Menu/main_menu.gd" id="1_pcr23"]
+[ext_resource type="Texture2D" uid="uid://dvvy3nj1xj6wp" path="res://Graphics/Renders/Amber/render Amber 1.png" id="1_sd33r"]
+[ext_resource type="Texture2D" uid="uid://b5ahhjuxcxqyx" path="res://Graphics/Renders/Gwendolyn/render gwendolynn 1.png" id="2_pcr23"]
+[ext_resource type="Texture2D" uid="uid://cy3i1afacths4" path="res://Graphics/Renders/Haicel/render haicel 1.png" id="3_715dn"]
+[ext_resource type="Texture2D" uid="uid://1jqs2j6u106a" path="res://Graphics/Renders/Milf/render milf 1.png" id="4_jpwwe"]
+[ext_resource type="Texture2D" uid="uid://cdfbq0ofghmbc" path="res://Graphics/Renders/Patty/render patty 1.png" id="5_3ue6s"]
+[ext_resource type="Texture2D" uid="uid://b5wl1io3q1ahl" path="res://Graphics/Renders/Viviann/render Viviann 1.png" id="6_ynklu"]
 [ext_resource type="AudioStream" uid="uid://bd4jj83mliu6h" path="res://Components/Conversacion.wav" id="8_715dn"]
 [ext_resource type="PackedScene" uid="uid://keuim334gqct" path="res://Scenes/parallax_background.tscn" id="9_3ue6s"]
+[ext_resource type="Script" uid="uid://31vup8cxv55j" path="res://UI/Menu/camera_2d.gd" id="10_ynklu"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_pcr23")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(247, 680)
+scale = Vector2(0.480002, 0.480002)
+texture = ExtResource("1_sd33r")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(529, 712)
+scale = Vector2(0.480002, 0.480002)
+texture = ExtResource("2_pcr23")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1150, 707)
+scale = Vector2(0.480002, 0.480002)
+texture = ExtResource("3_715dn")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(800, 715)
+scale = Vector2(0.480002, 0.480002)
+texture = ExtResource("4_jpwwe")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(1431, 699)
+scale = Vector2(0.480002, 0.480002)
+texture = ExtResource("5_3ue6s")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(1727, 697)
+scale = Vector2(0.480002, 0.480002)
+texture = ExtResource("6_ynklu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -52,6 +89,7 @@ stream = ExtResource("8_715dn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
+script = ExtResource("10_ynklu")
 
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]

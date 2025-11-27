@@ -1,14 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://djfcqq477robw"]
+[gd_scene load_steps=17 format=3 uid="uid://djfcqq477robw"]
 
 [ext_resource type="Script" uid="uid://c1lknujlh5cx4" path="res://Scenes/Levels/2D/apartment.gd" id="1_28dh5"]
-[ext_resource type="Texture2D" uid="uid://cdon138w0ax4j" path="res://Graphics/Scenes/Apartament/1.png" id="1_038et"]
-[ext_resource type="Texture2D" uid="uid://8m7s7o2mjcfr" path="res://Graphics/Scenes/Apartament/2.png" id="2_ua21c"]
-[ext_resource type="Texture2D" uid="uid://oedqg5s6gkdk" path="res://Graphics/Scenes/Apartament/3.png" id="3_28dh5"]
-[ext_resource type="Texture2D" uid="uid://bt6xlrxp2f7ux" path="res://Graphics/Scenes/Apartament/4.png" id="4_gdxlg"]
-[ext_resource type="Texture2D" uid="uid://ch1mqtvlql2ih" path="res://Graphics/Scenes/Apartament/5.png" id="5_4r8ey"]
-[ext_resource type="Texture2D" uid="uid://b2q5eoglsf8ua" path="res://Graphics/Scenes/Apartament/6.png" id="6_aw1l2"]
+[ext_resource type="Texture2D" uid="uid://dk2flv6yvep1k" path="res://Graphics/Components/NoPlayer/BG01 (1).png" id="2_28dh5"]
+[ext_resource type="Texture2D" uid="uid://b4ofxajcsn5m3" path="res://Graphics/Components/NoPlayer/BG01 (2).png" id="3_gdxlg"]
+[ext_resource type="Texture2D" uid="uid://d1bofhxnlmfju" path="res://Graphics/Components/NoPlayer/BG01 (3).png" id="4_4r8ey"]
+[ext_resource type="Texture2D" uid="uid://bq3w3oltpx6ro" path="res://Graphics/Components/NoPlayer/BG01 (4).png" id="5_aw1l2"]
+[ext_resource type="Texture2D" uid="uid://daxn3uhl40623" path="res://Graphics/Components/NoPlayer/BG01 (5).png" id="6_bfvle"]
 [ext_resource type="PackedScene" uid="uid://dtgw0m6ee21tv" path="res://Components/Player2D/player.tscn" id="7_bfvle"]
-[ext_resource type="Texture2D" uid="uid://b6rom6rmdgk7c" path="res://Graphics/Scenes/Apartament/4-Recuperado.png" id="8_ua21c"]
+[ext_resource type="Texture2D" uid="uid://d1nusr4ejbiue" path="res://Graphics/Components/NoPlayer/BG01 (6).png" id="7_d76eu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_038et"]
 size = Vector2(32, 52)
@@ -20,13 +19,21 @@ size = Vector2(32, 53)
 size = Vector2(68, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5iovj"]
-size = Vector2(581, 8)
+size = Vector2(541, 8)
+
+[sub_resource type="Gradient" id="Gradient_28dh5"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gdxlg"]
+gradient = SubResource("Gradient_28dh5")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdxlg"]
-size = Vector2(59, 349)
+size = Vector2(50, 349)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4r8ey"]
-size = Vector2(15, 348)
+size = Vector2(59, 348)
 
 [node name="Node2D" type="Node2D" groups=["isPausable"]]
 texture_filter = 1
@@ -35,15 +42,15 @@ script = ExtResource("1_28dh5")
 [node name="Node2D2" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
-texture = ExtResource("1_038et")
+texture = ExtResource("2_28dh5")
 centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="Node2D2"]
-texture = ExtResource("2_ua21c")
+texture = ExtResource("3_gdxlg")
 centered = false
 
 [node name="Sprite2D3" type="Sprite2D" parent="Node2D2"]
-texture = ExtResource("3_28dh5")
+texture = ExtResource("4_4r8ey")
 centered = false
 
 [node name="Area2D" type="Area2D" parent="Node2D2"]
@@ -51,36 +58,35 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Sprite2D4" type="Sprite2D" parent="Node2D2/Area2D"]
-texture = ExtResource("4_gdxlg")
+texture = ExtResource("5_aw1l2")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/Area2D"]
-position = Vector2(270, 209)
+position = Vector2(262, 209)
 shape = SubResource("RectangleShape2D_038et")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D2/Area2D"]
-position = Vector2(123, 208.5)
+position = Vector2(115, 208.5)
 shape = SubResource("RectangleShape2D_ua21c")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D2/Area2D"]
-position = Vector2(521, 206)
+position = Vector2(513, 206)
 shape = SubResource("RectangleShape2D_28dh5")
 
 [node name="Floor" type="StaticBody2D" parent="Node2D2"]
 position = Vector2(341, 239)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D2/Floor"]
-texture = ExtResource("6_aw1l2")
+texture = ExtResource("6_bfvle")
 region_enabled = true
 region_rect = Rect2(42, 235, 598, 9)
 
 [node name="Sprite2D5" type="Sprite2D" parent="Node2D2/Floor"]
-position = Vector2(-341, -239)
-texture = ExtResource("5_4r8ey")
-centered = false
+position = Vector2(-20, -64)
+texture = ExtResource("7_d76eu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/Floor"]
-position = Vector2(8.5, 0)
+position = Vector2(-20.5, 0)
 shape = SubResource("RectangleShape2D_5iovj")
 
 [node name="Player" parent="." instance=ExtResource("7_bfvle")]
@@ -96,34 +102,36 @@ color = Color(0.960784, 0.960784, 0.905882, 1)
 energy = 0.5
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D"]
-position = Vector2(125, 179)
-scale = Vector2(0.887346, 0.833333)
+position = Vector2(115, 178)
+scale = Vector2(5.76684, 0.961142)
 color = Color(0.877468, 0.878242, 0.501908, 1)
-energy = 0.7
-texture = ExtResource("8_ua21c")
+energy = 0.5
+texture = SubResource("GradientTexture2D_gdxlg")
+texture_scale = 1.2
+
+[node name="PointLight2D2" type="PointLight2D" parent="Node2D"]
+position = Vector2(263, 178)
+scale = Vector2(5.76684, 0.961142)
+color = Color(0.877468, 0.878242, 0.501908, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_gdxlg")
 texture_scale = 1.2
 
 [node name="PointLight2D3" type="PointLight2D" parent="Node2D"]
-position = Vector2(122, 194)
-scale = Vector2(0.457171, 0.457171)
-color = Color(0.827451, 0.709804, 0.294118, 1)
-energy = 0.99
-texture = ExtResource("8_ua21c")
-
-[node name="PointLight2D5" type="PointLight2D" parent="Node2D"]
-position = Vector2(271.634, 178.5)
-scale = Vector2(0.887346, 0.833333)
+position = Vector2(115, 194.908)
+scale = Vector2(2.08129, 0.346882)
 color = Color(0.877468, 0.878242, 0.501908, 1)
 energy = 0.7
-texture = ExtResource("8_ua21c")
+texture = SubResource("GradientTexture2D_gdxlg")
 texture_scale = 1.2
 
-[node name="PointLight2D6" type="PointLight2D" parent="Node2D"]
-position = Vector2(268.634, 193.5)
-scale = Vector2(0.457171, 0.457171)
-color = Color(0.827451, 0.709804, 0.294118, 1)
-energy = 0.99
-texture = ExtResource("8_ua21c")
+[node name="PointLight2D4" type="PointLight2D" parent="Node2D"]
+position = Vector2(263, 194.908)
+scale = Vector2(2.08129, 0.346882)
+color = Color(0.877468, 0.878242, 0.501908, 1)
+energy = 0.7
+texture = SubResource("GradientTexture2D_gdxlg")
+texture_scale = 1.2
 
 [node name="Node2D3" type="Node2D" parent="."]
 
@@ -131,11 +139,11 @@ texture = ExtResource("8_ua21c")
 position = Vector2(11, 11)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D3/Area2D"]
-position = Vector2(18.5, 164.5)
+position = Vector2(14, 164.5)
 shape = SubResource("RectangleShape2D_gdxlg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D3/Area2D"]
-position = Vector2(631.5, 164)
+position = Vector2(609.5, 164)
 shape = SubResource("RectangleShape2D_4r8ey")
 
 [connection signal="area_entered" from="Node2D2/Area2D" to="." method="_on_area_2d_area_entered"]
