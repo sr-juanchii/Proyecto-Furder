@@ -156,7 +156,7 @@ states/Walk/node = SubResource("AnimationNodeAnimation_qplh6")
 states/Walk/position = Vector2(160, 51)
 graph_offset = Vector2(-376, -158)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_1luhb")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]

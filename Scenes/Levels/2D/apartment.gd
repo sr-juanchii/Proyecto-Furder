@@ -13,3 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	print("PUTO") # Replace with function body.
+
+
+func _on_elevator_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

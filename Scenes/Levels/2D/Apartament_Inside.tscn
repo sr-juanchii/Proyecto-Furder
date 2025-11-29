@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://6qcppm5463jx"]
+
+[ext_resource type="Texture2D" uid="uid://b5er6svj8t83b" path="res://Graphics/Scenes/Apartament_Inside/bg 02 00.png" id="1_pxgo3"]
+[ext_resource type="Texture2D" uid="uid://cp8sqtr15kk2a" path="res://Graphics/Scenes/Apartament_Inside/bg 02 1.png" id="2_d1jqk"]
+[ext_resource type="Texture2D" uid="uid://ce72gbu00ok3r" path="res://Graphics/Scenes/Apartament_Inside/bg 02 3.png" id="3_chr6t"]
+[ext_resource type="Texture2D" uid="uid://uf2l06itskc" path="res://Graphics/Scenes/Apartament_Inside/bg 02 4.png" id="4_87gly"]
+[ext_resource type="Texture2D" uid="uid://d23svupdyo5y7" path="res://Graphics/Scenes/Apartament_Inside/bg 02 2.png" id="5_41jmh"]
+[ext_resource type="PackedScene" uid="uid://cxrup15ke64ny" path="res://Scenes/Levels/2D/doors.tscn" id="5_chr6t"]
+[ext_resource type="PackedScene" uid="uid://dtgw0m6ee21tv" path="res://Components/Player2D/player.tscn" id="6_43tvf"]
+[ext_resource type="Texture2D" uid="uid://daxn3uhl40623" path="res://Graphics/Components/NoPlayer/BG01 (5).png" id="6_d1jqk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chr6t"]
+size = Vector2(586.5, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1jqk"]
+size = Vector2(38.5, 163)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87gly"]
+size = Vector2(22, 118)
+
+[node name="ApartamentInside" type="Node2D"]
+
+[node name="Bg0200" type="Sprite2D" parent="."]
+position = Vector2(320, -179)
+texture = ExtResource("1_pxgo3")
+
+[node name="Bg021" type="Sprite2D" parent="."]
+position = Vector2(318, -178)
+texture = ExtResource("2_d1jqk")
+
+[node name="Bg023" type="Sprite2D" parent="."]
+position = Vector2(317, -178)
+texture = ExtResource("3_chr6t")
+
+[node name="Bg024" type="Sprite2D" parent="."]
+position = Vector2(318, -178)
+texture = ExtResource("4_87gly")
+
+[node name="Doors" parent="." instance=ExtResource("5_chr6t")]
+position = Vector2(277, -145)
+
+[node name="Player" parent="." instance=ExtResource("6_43tvf")]
+z_index = 2
+position = Vector2(236, -120)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(341, 239)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+visible = false
+texture = ExtResource("6_d1jqk")
+region_enabled = true
+region_rect = Rect2(42, 235, 598, 9)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Floor"]
+position = Vector2(-22, -417)
+texture = ExtResource("5_41jmh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-23.25, -353)
+shape = SubResource("RectangleShape2D_chr6t")
+
+[node name="f" type="CollisionShape2D" parent="Floor"]
+z_index = 1
+position = Vector2(250.75, -438.5)
+shape = SubResource("RectangleShape2D_d1jqk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-308, -416)
+shape = SubResource("RectangleShape2D_87gly")

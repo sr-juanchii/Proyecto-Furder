@@ -1,13 +1,33 @@
-[gd_scene load_steps=17 format=3 uid="uid://djfcqq477robw"]
+[gd_scene load_steps=40 format=3 uid="uid://djfcqq477robw"]
 
 [ext_resource type="Script" uid="uid://c1lknujlh5cx4" path="res://Scenes/Levels/2D/apartment.gd" id="1_28dh5"]
 [ext_resource type="Texture2D" uid="uid://dk2flv6yvep1k" path="res://Graphics/Components/NoPlayer/BG01 (1).png" id="2_28dh5"]
 [ext_resource type="Texture2D" uid="uid://b4ofxajcsn5m3" path="res://Graphics/Components/NoPlayer/BG01 (2).png" id="3_gdxlg"]
 [ext_resource type="Texture2D" uid="uid://d1bofhxnlmfju" path="res://Graphics/Components/NoPlayer/BG01 (3).png" id="4_4r8ey"]
+[ext_resource type="Script" uid="uid://dy2cfi5plxhhh" path="res://Scenes/Levels/2D/doors.gd" id="5_64nc8"]
 [ext_resource type="Texture2D" uid="uid://bq3w3oltpx6ro" path="res://Graphics/Components/NoPlayer/BG01 (4).png" id="5_aw1l2"]
 [ext_resource type="Texture2D" uid="uid://daxn3uhl40623" path="res://Graphics/Components/NoPlayer/BG01 (5).png" id="6_bfvle"]
+[ext_resource type="Texture2D" uid="uid://c8qxep2todlbc" path="res://Graphics/Scenes/Apartament/animations/close 1.png" id="6_v485q"]
 [ext_resource type="PackedScene" uid="uid://dtgw0m6ee21tv" path="res://Components/Player2D/player.tscn" id="7_bfvle"]
 [ext_resource type="Texture2D" uid="uid://d1nusr4ejbiue" path="res://Graphics/Components/NoPlayer/BG01 (6).png" id="7_d76eu"]
+[ext_resource type="Texture2D" uid="uid://qj0xyaxdin1h" path="res://Graphics/Scenes/Apartament/animations/close 2.png" id="7_gg853"]
+[ext_resource type="Texture2D" uid="uid://nxidi416buao" path="res://Graphics/Scenes/Apartament/animations/close 3.png" id="8_753x1"]
+[ext_resource type="Texture2D" uid="uid://c6j1y7yvi43eu" path="res://Graphics/Scenes/Apartament/animations/close 4.png" id="9_yxrsd"]
+[ext_resource type="Texture2D" uid="uid://d3vnqtfcgil5d" path="res://Graphics/Scenes/Apartament/animations/open 1.png" id="10_uryxx"]
+[ext_resource type="Texture2D" uid="uid://75gdm7phc7ci" path="res://Graphics/Scenes/Apartament/animations/ascensor1.png" id="11_ruig3"]
+[ext_resource type="Texture2D" uid="uid://4uitu67uuar1" path="res://Graphics/Scenes/Apartament/animations/open 2.png" id="11_xggys"]
+[ext_resource type="Texture2D" uid="uid://bmgppnpte4sub" path="res://Graphics/Scenes/Apartament/animations/open 3.png" id="12_iqa2l"]
+[ext_resource type="Texture2D" uid="uid://csrn6bp04ixx8" path="res://Graphics/Scenes/Apartament/animations/ascensor2.png" id="12_nbpwa"]
+[ext_resource type="Texture2D" uid="uid://duovqqoggiv2d" path="res://Graphics/Scenes/Apartament/animations/ascensor3.png" id="13_d3b6m"]
+[ext_resource type="Texture2D" uid="uid://dj3l1xkmydtd7" path="res://Graphics/Scenes/Apartament/animations/open 4.png" id="13_enacq"]
+[ext_resource type="Texture2D" uid="uid://bvv3um1lrvk2w" path="res://Graphics/Scenes/Apartament/animations/ascensor4.png" id="14_a8t4w"]
+[ext_resource type="Texture2D" uid="uid://bub0twolgiqtm" path="res://Graphics/Scenes/Apartament/animations/open 5.png" id="14_aqsc2"]
+[ext_resource type="Texture2D" uid="uid://dl5jmvf0o6ra5" path="res://Graphics/Scenes/Apartament/animations/ascensor5.png" id="15_idcnd"]
+[ext_resource type="Texture2D" uid="uid://dc1e8suq6gvsc" path="res://Graphics/Scenes/Apartament/animations/ascensor6.png" id="16_brvps"]
+[ext_resource type="Texture2D" uid="uid://bxglrk8avaivd" path="res://Graphics/Scenes/Apartament/animations/ascensor7.png" id="17_vl2sx"]
+[ext_resource type="Texture2D" uid="uid://bttr1h1ju66j5" path="res://Graphics/Scenes/Apartament/animations/ascensor8.png" id="18_vw46s"]
+[ext_resource type="Texture2D" uid="uid://br0315uc7iaue" path="res://Graphics/Scenes/Apartament/animations/ascensor9.png" id="19_mr4y5"]
+[ext_resource type="Script" uid="uid://b3eb82u7xl7ji" path="res://Scenes/Levels/2D/elevator.gd" id="25_74v4n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_038et"]
 size = Vector2(32, 52)
@@ -18,8 +38,120 @@ size = Vector2(32, 53)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28dh5"]
 size = Vector2(68, 58)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5iovj"]
-size = Vector2(541, 8)
+[sub_resource type="SpriteFrames" id="SpriteFrames_3i0ws"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_v485q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gg853")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_753x1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yxrsd")
+}],
+"loop": false,
+"name": &"closeddoor",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_mr4y5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_vw46s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_vl2sx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_brvps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_idcnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_a8t4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_d3b6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nbpwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ruig3")
+}],
+"loop": false,
+"name": &"closedelevator",
+"speed": 14.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_uryxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xggys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_iqa2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_enacq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_aqsc2")
+}],
+"loop": false,
+"name": &"openeddoor",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ruig3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nbpwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_d3b6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_a8t4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_idcnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_brvps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_vl2sx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_vw46s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_mr4y5")
+}],
+"loop": false,
+"name": &"openelevator",
+"speed": 14.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65s6y"]
+size = Vector2(41, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_717wp"]
+size = Vector2(105, 58)
 
 [sub_resource type="Gradient" id="Gradient_28dh5"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -34,6 +166,9 @@ size = Vector2(50, 349)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4r8ey"]
 size = Vector2(59, 348)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64nc8"]
+size = Vector2(586.5, 8)
 
 [node name="Node2D" type="Node2D" groups=["isPausable"]]
 texture_filter = 1
@@ -54,6 +189,7 @@ texture = ExtResource("4_4r8ey")
 centered = false
 
 [node name="Area2D" type="Area2D" parent="Node2D2"]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -73,24 +209,41 @@ shape = SubResource("RectangleShape2D_ua21c")
 position = Vector2(513, 206)
 shape = SubResource("RectangleShape2D_28dh5")
 
-[node name="Floor" type="StaticBody2D" parent="Node2D2"]
-position = Vector2(341, 239)
+[node name="Doors" type="Area2D" parent="Node2D2" node_paths=PackedStringArray("Door_Animation") groups=["puertas"]]
+position = Vector2(-16, 353)
+script = ExtResource("5_64nc8")
+ThisDoorGoTo = "uid://6qcppm5463jx"
+Door_Animation = NodePath("Door_Animation")
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D2/Floor"]
-texture = ExtResource("6_bfvle")
-region_enabled = true
-region_rect = Rect2(42, 235, 598, 9)
+[node name="Door_Animation" type="AnimatedSprite2D" parent="Node2D2/Doors"]
+position = Vector2(278, -150)
+sprite_frames = SubResource("SpriteFrames_3i0ws")
+animation = &"openeddoor"
 
-[node name="Sprite2D5" type="Sprite2D" parent="Node2D2/Floor"]
-position = Vector2(-20, -64)
-texture = ExtResource("7_d76eu")
+[node name="CollisionDoor" type="CollisionShape2D" parent="Node2D2/Doors"]
+position = Vector2(277.5, -145.5)
+shape = SubResource("RectangleShape2D_65s6y")
+debug_color = Color(0.39215687, 0.11372549, 1, 0.41960785)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/Floor"]
-position = Vector2(-20.5, 0)
-shape = SubResource("RectangleShape2D_5iovj")
+[node name="Puerta" type="Area2D" parent="Node2D2" node_paths=PackedStringArray("Elevator_Animation") groups=["puertas"]]
+position = Vector2(226, 354)
+script = ExtResource("25_74v4n")
+ThisDoorGoTo = "uid://p5m327hwidr5"
+Elevator_Animation = NodePath("Elevator_Animation")
+
+[node name="Elevator_Animation" type="AnimatedSprite2D" parent="Node2D2/Puerta"]
+position = Vector2(278, -150)
+sprite_frames = SubResource("SpriteFrames_3i0ws")
+animation = &"closedelevator"
+
+[node name="CollisionDoor" type="CollisionShape2D" parent="Node2D2/Puerta"]
+position = Vector2(281.5, -147)
+shape = SubResource("RectangleShape2D_717wp")
+debug_color = Color(0.39215687, 0.11372549, 1, 0.41960785)
 
 [node name="Player" parent="." instance=ExtResource("7_bfvle")]
-position = Vector2(170, 234)
+z_index = 2
+position = Vector2(318, 234)
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -146,4 +299,26 @@ shape = SubResource("RectangleShape2D_gdxlg")
 position = Vector2(609.5, 164)
 shape = SubResource("RectangleShape2D_4r8ey")
 
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(341, 271)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+z_index = 1
+position = Vector2(-11, 0)
+texture = ExtResource("6_bfvle")
+region_enabled = true
+region_rect = Rect2(42, 235, 598, 9)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Floor"]
+position = Vector2(-22, -96)
+texture = ExtResource("7_d76eu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-24, -30)
+shape = SubResource("RectangleShape2D_64nc8")
+
 [connection signal="area_entered" from="Node2D2/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Node2D2/Doors" to="Node2D2/Doors" method="_on_body_entered"]
+[connection signal="body_exited" from="Node2D2/Doors" to="Node2D2/Doors" method="_on_body_exited"]
+[connection signal="body_entered" from="Node2D2/Puerta" to="Node2D2/Puerta" method="_on_body_entered"]
+[connection signal="body_exited" from="Node2D2/Puerta" to="Node2D2/Puerta" method="_on_body_exited"]

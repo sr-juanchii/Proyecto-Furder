@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://p5m327hwidr5"]
+
+[ext_resource type="Texture2D" uid="uid://daxn3uhl40623" path="res://Graphics/Components/NoPlayer/BG01 (5).png" id="1_tulii"]
+[ext_resource type="Texture2D" uid="uid://d23svupdyo5y7" path="res://Graphics/Scenes/Apartament_Inside/bg 02 2.png" id="2_184ta"]
+[ext_resource type="PackedScene" uid="uid://dtgw0m6ee21tv" path="res://Components/Player2D/player.tscn" id="3_jmfbr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52x14"]
+size = Vector2(586.5, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_po0fd"]
+size = Vector2(38.5, 163)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3stqu"]
+size = Vector2(22, 118)
+
+[node name="World" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(260, 207)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+visible = false
+texture = ExtResource("1_tulii")
+region_enabled = true
+region_rect = Rect2(42, 235, 598, 9)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Floor"]
+visible = false
+position = Vector2(-22, -417)
+texture = ExtResource("2_184ta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-23.25, -353)
+shape = SubResource("RectangleShape2D_52x14")
+
+[node name="f" type="CollisionShape2D" parent="Floor"]
+visible = false
+z_index = 1
+position = Vector2(250.75, -438.5)
+shape = SubResource("RectangleShape2D_po0fd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+visible = false
+position = Vector2(-308, -416)
+shape = SubResource("RectangleShape2D_3stqu")
+
+[node name="Player" parent="." instance=ExtResource("3_jmfbr")]
+z_index = 2
+position = Vector2(38, -157)
